@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0152)https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/184998815ba7f8efaea3ce4b9118ec87/f6324c18-b725-47cd-8fab-d57d283c78b2/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progressive Modal System</title>
+  <link rel="stylesheet" href="./Progressive Modal System_files/style.css">
+<style class="automa-element-selector">@font-face { font-family: "Inter var"; font-weight: 100 900; font-display: swap; font-style: normal; font-named-instance: "Regular"; src: url("chrome-extension://infppggnoaenmfagbfknfkancpbljcca/Inter-roman-latin.var.woff2") format("woff2") }
+.automa-element-selector { direction: ltr } 
+ [automa-isDragging] { user-select: none } 
+ [automa-el-list] {outline: 2px dashed #6366f1;}</style></head>
+<body>
+  <!-- Main page content -->
+  <main class="container py-32">
+    <section class="hero-section">
+      <h1 class="mb-24">Modal System Demo</h1>
+      <p class="mb-32">Click the buttons below to open modals with progressive scroll expansion.</p>
+      
+      <div class="trigger-buttons">
+        <button id="trigger-blue" class="btn btn--primary btn--lg">
+          Open Blue Modal
+        </button>
+        <button id="trigger-red" class="btn btn--outline btn--lg" style="border-color: var(--color-red-400); color: var(--color-red-400);">
+          Open Red Modal
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal backdrop -->
+  <div id="modal-backdrop" class="modal-backdrop"></div>
+
+  <!-- Modal container -->
+  <div id="modal" class="modal">
+    <div id="modal-content" class="modal-content">
+      <div id="scroll-container" class="scroll-container">
+        <div class="modal-wrapper">
+          <!-- Modal header -->
+          <header class="modal-header">
+            <button id="back-btn" class="back-btn" aria-label="Go back">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"></path>
+              </svg>
+              Go back to homepage
+            </button>
+            <button id="close-btn" class="close-btn" aria-label="Close modal">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"></path>
+              </svg>
+            </button>
+          </header>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="modal-columns">
+              <!-- Left column: Book cover -->
+              <div class="left-column">
+                <div class="book-cover" role="img" aria-label="Book cover">
+                  <div class="book-cover-placeholder">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <p>Book Cover</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right column: Content -->
+              <div class="right-column">
+                <div class="content-area">
+                  <h1 id="item-title" class="item-title">The Digital Revolution</h1>
+                  <p id="item-meta" class="item-meta">Sarah Johnson • Technology</p>
+                  <p id="item-description" class="item-description">A comprehensive guide to understanding how digital transformation is reshaping our world. Explore the latest trends and innovations that are changing how we work, communicate, and live.</p>
+
+                  <!-- Metadata grid -->
+                  <div class="metadata-grid">
+                    <div class="metadata-item">
+                      <span class="metadata-label">ID01:</span>
+                      <span id="meta-id01" class="metadata-value">DR001</span>
+                    </div>
+                    <div class="metadata-item">
+                      <span class="metadata-label">ID02:</span>
+                      <span id="meta-id02" class="metadata-value">TG245</span>
+                    </div>
+                    <div class="metadata-item">
+                      <span class="metadata-label">Date:</span>
+                      <span id="meta-date" class="metadata-value">15-07-2025</span>
+                    </div>
+                    <div class="metadata-item">
+                      <span class="metadata-label">Languages:</span>
+                      <span id="meta-languages" class="metadata-value">English, French, Spanish</span>
+                    </div>
+                  </div>
+
+                  <!-- Highlight section -->
+                  <div class="highlight-section">
+                    <h3>New information unveiled</h3>
+                    <p id="new-info-text">Latest insights on AI integration and future technology trends</p>
+                  </div>
+
+                  <!-- CTA buttons -->
+                  <div class="cta-buttons">
+                    <button class="btn btn--primary">READ NOW</button>
+                    <button class="btn btn--secondary">SAVE FOR LATER</button>
+                  </div>
+
+                  <!-- Collection info -->
+                  <p class="collection-info">
+                    Part of the <a id="collection-link" href="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/184998815ba7f8efaea3ce4b9118ec87/f6324c18-b725-47cd-8fab-d57d283c78b2/index.html#" target="_blank">Digital Age Collection</a> collection
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Similar items section -->
+            <div class="similar-items-section">
+              <h2>Similar Items</h2>
+              <div id="similar-items-grid" class="similar-items-grid"><div class="similar-item" style="background-color: rgb(255, 0, 255);">AI Innovations</div><div class="similar-item" style="background-color: rgb(255, 99, 71);">Future Tech</div><div class="similar-item" style="background-color: rgb(173, 255, 47);">Digital Trends</div></div>
+            </div>
+          </div>
+
+          <!-- Scroll indicator -->
+          <div id="scroll-indicator" class="scroll-indicator">
+            Scroll to see more ↓
+          </div>
+        </div>
+        
+        <!-- Scroll spacer for expansion -->
+        <div id="scroll-spacer" class="scroll-spacer" style="height: 651px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./Progressive Modal System_files/app.js.téléchargement"></script>
+
+<div id="automa-palette"><template shadowrootmode="open"><style>.list-item-active svg { visibility: visible }</style><div id="app" data-v-app=""><!----></div></template></div></body></html>
